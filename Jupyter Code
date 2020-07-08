@@ -1,0 +1,12 @@
+import pandas as pd
+import numpy as np
+
+data=pd.read_csv('Global_Mobility_Report.csv')
+clean_data = data.copy()
+clean_data.head()
+clean_data.info()
+clean_data.describe()
+clean_data=clean_data.drop(['sub_region_2','country_region_code','iso_3166_2_code', 'census_fips_code'],axis=1)
+data_Canada = clean_data[clean_data['country_region']=='Canada']
+data_Canada.head()
+data_Canada.to_csv('canada_only_data.csv')
